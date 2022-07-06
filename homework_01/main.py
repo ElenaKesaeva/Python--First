@@ -37,3 +37,13 @@ def filter_numbers(numbers_list, filter_type):
     if filter_type == EVEN:
         return [number for number in numbers_list if number % 2 == 0]
 
+def prime_numbers (numbers_list):
+    prime = []
+    for i in numbers_list:
+        a = 0
+        if i > 1:
+            for j in range(1, i):
+                if i % j == 0:
+                    a += 1
+                if a == 0:
+                    return prime.append(i)

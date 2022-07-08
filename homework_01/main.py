@@ -20,15 +20,16 @@ EVEN = "even"
 PRIME = "prime"
 
 
-def is_prime(numbers_list):
-    primes = []
-    for i in numbers_list:
-        c = 0
-        for j in range(1, i):
-            if i % j == 0:
-                c += 1
-        if c == 1:
-            primes.append(i)
+def is_prime(number):
+    if number < 2:
+        return False
+    if number == 2:
+        return True
+
+    for i in range(2, number):
+        if number % i == 0:
+            return False
+        return True
 
 
 def filter_numbers(numbers_list, filter_type):
@@ -50,7 +51,7 @@ def filter_numbers(numbers_list, filter_type):
         return list(filter(lambda number: number % 2 == 0, numbers_list))
 
     if filter_type == PRIME:
-        return is_prime(numbers_list)
+        return list(filter(is_prime, numbers_list))
 
 
 

@@ -29,7 +29,7 @@ def is_prime(number):
     for i in range(2, number):
         if number % i == 0:
             return False
-        return True
+    return True
 
 
 def filter_numbers(numbers_list, filter_type):

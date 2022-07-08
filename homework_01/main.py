@@ -11,13 +11,24 @@ def power_numbers(*numbers):
     >>> power_numbers(1, 2, 5, 7)
     <<< [1, 4, 25, 49]
     """
-    return [number ** 2 for number in numbers]
+    return list(map(lambda number: number ** 2, numbers))
 
 
 # filter types
 ODD = "odd"
 EVEN = "even"
 PRIME = "prime"
+
+
+def is_prime(numbers_list):
+    primes = []
+    for i in numbers_list:
+        c = 0
+        for j in range(1, i):
+            if i % j == 0:
+                c += 1
+        if c == 1:
+            primes.append(i)
 
 
 def filter_numbers(numbers_list, filter_type):
@@ -33,17 +44,13 @@ def filter_numbers(numbers_list, filter_type):
     <<< [2, 4]
     """
     if filter_type == ODD:
-        return [number for number in numbers_list if number % 2 != 0]
-    if filter_type == EVEN:
-        return [number for number in numbers_list if number % 2 == 0]
+        return list(filter(lambda number: number % 2 != 0, numbers_list))
 
-def prime_numbers (numbers_list):
-    prime = []
-    for i in numbers_list:
-        a = 0
-        if i > 1:
-            for j in range(1, i):
-                if i % j == 0:
-                    a += 1
-                if a == 0:
-                    return prime.append(i)
+    if filter_type == EVEN:
+        return list(filter(lambda number: number % 2 == 0, numbers_list))
+
+    if filter_type == PRIME:
+        return is_prime(numbers_list)
+
+
+

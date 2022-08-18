@@ -4,7 +4,9 @@
 # 4.Для открытия приложения в браузере набираем  - localhost:8000
 
 FROM python:3.10-bullseye
+
 WORKDIR /app
+
 RUN pip install --upgrade pip
 RUN pip install poetry==1.1.14
 RUN poetry config virtualenvs.create false

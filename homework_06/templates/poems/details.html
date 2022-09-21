@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Poem #{{ poem.id }}
+{% endblock %}
+
+{% block body %}
+  <h1>Poem #{{ poem.id }}
+    <code>{{ poem.name }}</code></h1>
+  <div>
+    <a href="{{ url_for('poems_app.list') }}">
+      Back to poems list</a>
+  </div>
+{% endblock %}

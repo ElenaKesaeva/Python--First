@@ -1,0 +1,24 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+  Poems list
+{% endblock %}
+
+{% block body %}
+  <h1>List of poems:</h1>
+  <ul>
+    {% for poem in poems %}
+      <li>
+        <a href="{{ url_for('poems_app.details', poem_id=poem.id) }}">
+          {{ poem.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <div>
+    <a href="{{ url_for('poems_app.add') }}">
+      Create poem
+    </a>
+  </div>
+{% endblock %}

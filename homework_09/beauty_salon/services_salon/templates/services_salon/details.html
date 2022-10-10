@@ -1,0 +1,55 @@
+{% extends 'services_salon/base.html' %}
+
+{% block title %}
+  {{ service.name }} details
+{% endblock %}
+
+{% block body %}
+  <h1>Service: <strong>{{ service.name }}</strong></h1>
+  <div>
+    <p>Description: {{ service.description }}</p>
+  </div>
+  <div>
+    <h2>Details:</h2>
+    <div>
+
+      <div class="row">
+        <div class="col col-2">
+          <strong>Service's price:</strong>
+        </div>
+        <div class="col">
+          {{ service.details.price }}
+        </div>
+      </div>
+       <div class="row">
+        <div class="col col-2">
+          <strong>Service's time:</strong>
+        </div>
+        <div class="col">
+          {{ service.details.time }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-2">
+          <strong>Service's staff:</strong>
+        </div>
+        <div class="col">
+          {{ service.details.staff }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-2">
+          <strong>Service's description:</strong>
+        </div>
+        <div class="col">
+          {{ service.details.description }}
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="my-2">
+  <a href="{% url 'services_salon:index' %}">Back to services list</a>
+  </div>
+{% endblock %}

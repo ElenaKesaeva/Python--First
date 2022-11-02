@@ -1,0 +1,12 @@
+[
+  {"model": "services_salon.service",
+  "pk": 1,
+  "fields": {"name": "Women's haircut",
+    "description": "A hairstyle, hairdo, haircut or coiffure refers to the styling of hair"
+
+  }},
+  {"model": "services_salon.service",
+    "pk": 2,
+    "fields": {"name": "Men's haircut",
+      "description": "Modern men's haircuts of any complexity"}}
+]

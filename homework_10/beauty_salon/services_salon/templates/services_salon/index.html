@@ -1,0 +1,17 @@
+{% extends 'services_salon/base.html' %}
+
+{% block title %}
+  Services list
+{% endblock %}
+
+{% block body %}
+  <h1>Services:</h1>
+  <ul class="list-group">
+    {% for service in services_salon %}
+      <li class="list-group-item">
+        <a href="{% url 'services_salon:details' service.pk %}"
+        >{{ service.name}} </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

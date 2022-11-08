@@ -11,7 +11,6 @@ class Services_salonDetailsTestCase(DetailView):
 
     def test_details_services_salon(self, **kwargs):
         context = super().test_details_services_salon(**kwargs)
-        # Add in a QuerySet of all the books
         context['services_salon'] = Service.objects.all()
         return context
 

@@ -13,7 +13,7 @@ class Services_salonListTestCase(TestCase):
     ]
 
     def test_list_services_salon(self):
-        url = reverse("services_salon: index")
+        url = reverse("services_salon:index")
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, HTTPStatus.OK)

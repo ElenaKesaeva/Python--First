@@ -2,8 +2,7 @@
   {"model": "services_salon.service",
   "pk": 1,
   "fields": {"name": "Women's haircut",
-    "description": "A hairstyle, hairdo, haircut or coiffure refers to the styling of hair, usually on the human scalp.The fashioning of hair can be considered an aspect of personal grooming, fashion, and cosmetics, although practical, cultural, and popular considerations also influence some hairstyles",
-
+    "description": "A hairstyle, hairdo, haircut or coiffure refers to the styling of hair"
 
   }},
   {"model": "services_salon.service",

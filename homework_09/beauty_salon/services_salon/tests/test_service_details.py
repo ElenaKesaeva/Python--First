@@ -1,25 +1,25 @@
-from http import HTTPStatus
 
-from django.test import TestCase
-from django.urls import reverse
+from django.views.generic import DetailView
 
 from services_salon.models import Service
 
 
-class Services_salonDetailsTestCase(TestCase):
-    fixtures = [
-        "details.fixture.json"
-    ]
+class Services_salonDetailsTestCase(DetailView):
+    fixtures = ["service.fixture.json",
+                "details.fixture.json"
+                ]
 
-    def test_details_services_salon(self):
+    def test_details_services_salon(self, **kwargs):
+        context = super().test_details_services_salon(**kwargs)
+        # Add in a QuerySet of all the books
+        context['services_salon'] = Service.objects.all()
+        return context
 
-        url = reverse("services_salon:details", kwargs={"pk": 1})
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, HTTPStatus.OK)
-        service = (Service.objects.select_related("details"))
-        service_in_context = response.context["details"]
-        self.assertEqual(len(service), len(service_in_context))
-        for s1, s2 in zip(service, service_in_context):
-            self.assertEqual(s1.pk, s2.pk)
+
+
+
+
+
+
 
 

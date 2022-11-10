@@ -3,11 +3,8 @@
 
 name: Django CI Test
 
-on:
-  push:
-    branches:
-      - homework_10
-  pull_request:
+on: [push]
+
 
 
 permissions:

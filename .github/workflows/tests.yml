@@ -8,8 +8,7 @@ on:
     branches:
       - homework10
   pull_request:
-    branches:
-      - master
+
 
 permissions:
   contents: read

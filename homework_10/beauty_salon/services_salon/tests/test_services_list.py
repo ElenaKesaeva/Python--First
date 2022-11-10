@@ -15,6 +15,10 @@ class Services_salonListTestCase(TestCase):
     ]
 
     def test_list_services_salon(self):
+        """
+        test service list
+        :return:
+        """
         url = reverse("services_salon:index")
         response = self.client.get(url)
 

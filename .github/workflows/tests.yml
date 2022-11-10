@@ -6,7 +6,7 @@ name: Django CI Test
 on:
   push:
     branches:
-      - homework10
+      - homework_10
   pull_request:
 
 

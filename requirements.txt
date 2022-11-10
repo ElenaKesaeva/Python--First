@@ -6,7 +6,6 @@ asgiref==3.5.2
 astroid==2.12.12
 async-timeout==4.0.2
 asyncpg==0.26.0
-attrs @ file:///Users/elenakesaeva/Library/Caches/pypoetry/artifacts/b9/be/54/b0e6347a5b526e41f45aea10a61b5240586c74ee17e1d53c827b4d7288/attrs-22.1.0-py2.py3-none-any.whl
 black==22.8.0
 CacheControl==0.12.11
 cachy==0.3.0

@@ -26,6 +26,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run all Django Tests
         run: |
-          
+          cd manage.py
           python3 manage.py test
 

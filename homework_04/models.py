@@ -35,7 +35,7 @@ class Base:
 
 
 Base = declarative_base(bind=async_engine, cls=Base)
-Session = None
+Session = async_session
 
 
 class User(Base):

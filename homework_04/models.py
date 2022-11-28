@@ -50,4 +50,4 @@ class Post(Base):
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     title = Column(String, unique=False, nullable=False)
     body = Column(String, nullable=False, default="N/A")
-    user = relationship('User', back_populates='post', uselist=False)
+    user = relationship('User', back_populates='posts')

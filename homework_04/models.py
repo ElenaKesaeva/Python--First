@@ -39,9 +39,9 @@ Session = async_session
 
 
 class User(Base):
-    name = Column(String(15), unique=True, nullable=False)
-    username = Column(String(20), unique=True)
-    email = Column(String(50), unique=True, nullable=False)
+    name = Column(String, unique=True, nullable=False)
+    username = Column(String, unique=True)
+    email = Column(String, unique=True, nullable=False)
     posts = relationship('Post', back_populates='user')
 
 

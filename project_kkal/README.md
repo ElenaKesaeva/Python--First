@@ -8,29 +8,45 @@
 потребляемые продукты (ингредиенты) и получить подсчет калорий.
 
 Для реализации этого приложения использовано:
+
 Python
+
 HTML
+
 css
+
 Bootstrap
+
 Django framework
+
 SQLite database
 
 
 1.Устанавливаем библиотеки Django и замораживаем зависимости
--pip install django
+     
+-pip install django 
+
 -pip freeze > requirements.txt
 
 2.Теперь создаем проект calorie_calculator 
 и приложение внутри него под названием «Ingredients».
 
 a)Создаем проект:
+
 -python -m django startproject calorie_calculator
+
 -cd calorie_calculator
+
 b)Запускаем сервер:
+
 -python manage.py runserver
+
 с)Создаем модели-выполняем миграции:
+
 -python manage.py migrate
+
 d)Внутри проекта создаем приложение:
+
 -python manage.py startapp ingredients
 
 3.Написание моделей: models.py
@@ -38,15 +54,19 @@ d)Внутри проекта создаем приложение:
 Для доступа к базе данных пишем модели и выполняем миграции.
 
 User
+
 Ingredient
+
 ItemConsumed
 
 -python manage.py makemigrations
+
 -python manage.py migrate
 
 4.Регестрируем модели на сайте администратора: admin.py
 
 5.Создаем суперпользователя для входа на admin страницу:
+
 -python manage.py createsuperuser
 
 Теперь можно создавать/обновлять в пользовательском интерфейсе:
@@ -62,9 +82,11 @@ http://127.0.0.1:8000/admin/
 
 
 Запустить приложение:
+
 -python manage.py runserver
 
 Чтобы просмотреть приложение:
+
 http://127.0.0.1:8000/ingredients
 (для удобства перемещения по страницам в шаблонах, 
 подключен Navbar navigation)

@@ -1,0 +1,33 @@
+{% extends 'ingredients/base.html' %}
+
+{% block title %}
+  Ingredients list
+{% endblock %}
+
+{% block body %}
+<table class="table table-bordered">
+  <thead>
+    <tr class="table-primary">
+      <th scope="col">#</th>
+      <th scope="col">INGREDIENT</th>
+      <th scope="col">CALORIES</th>
+      <th scope="col">QUANTITY / gram</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for ingredient in ingredients %}
+
+        <tr class="table-secondary">
+
+        <th scope="row"><a href="{% url 'ingredients:details' ingredient.pk %}">{{ ingredient.pk }}</a></th>
+        <td>{{ ingredient.name }}</td>
+        <td>{{ ingredient.calorie }}</td>
+        <td>{{ ingredient.quantity }}</td>
+
+        </tr>
+
+      {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

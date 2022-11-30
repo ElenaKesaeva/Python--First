@@ -1,5 +1,5 @@
 """
-WSGI config for beauty_salon project.
+WSGI config for calorie_calculator project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "beauty_salon.settings")
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'calorie_calculator.settings')
 
 application = get_wsgi_application()

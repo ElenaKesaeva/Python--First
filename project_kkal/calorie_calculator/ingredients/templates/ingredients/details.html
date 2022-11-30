@@ -1,0 +1,24 @@
+{% extends 'ingredients/base.html' %}
+
+{% block title %}
+  {{ ingredient.name }} details
+{% endblock %}
+
+{% block body %}
+<h2>{{ ingredient.name }}</h2>
+<div class='my-3'>
+  <p>Protein: {{ ingredient.protein }}</p>
+  <p>Fats: {{ ingredient.fats }}</p>
+  <p>Carbohydrate: {{ ingredient.carbohydrate }}</p>
+</div>
+    <p class='card-text'>
+                            <div class='my-3'>
+                                <strong>{{ ingredient.calorie}} calorie</strong> in {{ ingredient.quantity}} grams
+                            </div>
+                        </p>
+<div class="my-2">
+  <a href="{% url 'ingredients:index' %}">Back to ingredients list</a>
+  </div>
+
+
+{% endblock %}

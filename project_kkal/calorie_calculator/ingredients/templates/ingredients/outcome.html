@@ -1,0 +1,115 @@
+{% extends 'ingredients/base.html' %}
+
+{% load static %}
+
+{% block title %}Ingredients | Ingredients Consumed{% endblock %}
+
+{% block body %}
+
+<div class='py-4 mt-auto'>
+    <div class='container-fluid px-4'>
+        <div class='row justify-content-center'>
+            <div class='col-xl-12'>
+                    <div class='row'>
+                        <div class='col-md-6 mt-4'>
+                            <div class='card bg-light mb-3'>
+                                <div class='card-header'>
+                                    <h5>Select an ingredient to add it to the consumed ingredients</h5>
+                                </div>
+                                <div class='card-body'>
+                                    <div class='form-group'>
+                                        <form method='POST'>
+                                            {% csrf_token %}
+                                            <div class='form-group'>
+                                                <div class='row'>
+                                                    <div class='col-8'>
+                                                        <select class='form-select' name='ingredient_consumed' id='ingredient_consumed'>
+                                                            {% for ingredient in ingredients %}
+                                                                <option value='{{ingredient.name}}'>
+                                                                    {{ ingredient.name }}
+                                                                </option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <div class='col-4'>
+                                                        <button type='submit' class='btn btn-primary'>
+                                                            Add Ingredient
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='card bg-light mb-3'>
+
+                                <div class='card-header'>
+                                    <h5>Ingredients Consumed Today</h5>
+                                    <h5><strong class='text-primary'>{% now 'D, jS F Y' %}</strong></h5>
+                                </div>
+                                <div class='card-body'>
+
+                                    <table  class='table table-hover'>
+                                        <thead>
+                                            <tr>
+                                                <th scope='col' class='col-md-2'>Food Item</th>
+                                                <th scope='col' class='col-md-2'>Calories</th>
+                                                <th scope='col' class='col-md-2'>Fat (g) in 100g</th>
+                                                <th scope='col' class='col-md-2'>Carbs (g) in 100g</th>
+                                                <th scope='col' class='col-md-2'>Protein (g) in 100g</th>
+                                                <th scope='col' class='col-md-2'></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for ingredient_item in user_outcome %}
+                                            <tr>
+                                                <td class='col-md-2'>{{ ingredient_item.ingredient_consumed.name }}</td>
+                                                <td class='col-md-2'>{{ ingredient_item.ingredient_consumed.calorie }}</td>
+                                                <td class='col-md-2'>{{ ingredient_item.ingredient_consumed.fats }}</td>
+                                                <td class='col-md-2'>{{ ingredient_item.ingredient_consumed.carbohydrate }}</td>
+                                                <td class='col-md-2'>{{ ingredient_item.ingredient_consumed.protein }}</td>
+                                                  <td>
+                                                    <a class='btn btn-danger' href="{% url 'ingredients:ingredient_delete' ingredient_item.id %}">
+                                                        <i class='fas fa-trash-alt'></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                 </div>
+             </div>
+        </div>
+</div>
+ <div class='col-md-6 mt-4'>
+
+                            <div class='card bg-light mb-3'>
+                                <div class='card-header'>
+                                    <h5>Daily Calorie Goal for man  - <strong class='text-primary'>2,000 calories</strong></h5>
+                                     <h5>Daily Calorie Goal for women  - <strong class='text-primary'>1,800 calories</strong></h5>
+                                </div>
+                        </div>
+                    </div>
+    <div class='col-md-6 mt-4'>
+    <div class='card bg-light mb-3'>
+     <div class='card-header'>
+     {% if user_outcome %}
+        <h3>Total number of items consumed today: {{user_outcome|length}}</h3>
+     {% endif %}
+
+		<h3>Total Calories consumed: {{ total_calories}}</h3>
+
+    </div>
+    </div>
+    </div>
+
+
+{% endblock %}
+

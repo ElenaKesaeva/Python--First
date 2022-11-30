@@ -1,0 +1,28 @@
+{% extends 'ingredients/base.html' %}
+
+{% block title %}Ingredients | Delete {% endblock %}
+
+{% block body %}
+<div class='py-4 mt-auto'>
+    <div class='container-fluid px-4'>
+            <div class='row justify-content-center'>
+                <div class='col-xl-12'>
+                    <div class='card bg-light mb-3'>
+                        <div class='card-body'>
+
+                            <div class='form-group'>
+                                <form method='POST'>
+                                    {% csrf_token %}
+
+                                    Are you sure you want to remove this ingredient?
+                                    <button type='submit' class='btn btn-danger'>Delete</button>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
